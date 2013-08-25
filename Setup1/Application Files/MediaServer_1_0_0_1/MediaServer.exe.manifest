@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MediaServer.exe" version="1.0.0.1" publicKeyToken="2a3a399ccbea25a7" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MediaServer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MediaServer.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC 清单选项
+          如果要更改 Windows 用户帐户控制级别，请用以下节点之一替换
+          requestedExecutionLevel 节点。
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+          如果要利用文件和注册表虚拟化提供
+          向后兼容性，请删除 requestedExecutionLevel 节点。
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Declarations.dll" size="40448">
+      <assemblyIdentity name="Declarations" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>U6wlOs+GkHrSF+bNwoTXYdAIMuI+FLdcn3SJBaLKn1g=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Implementation.dll" size="100864">
+      <assemblyIdentity name="Implementation" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>mZdQBgNhgCGUdepbHcX+BNhG/vUIe6F+MyxdFeQVQXU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LibVlcWrapper.dll" size="29184">
+      <assemblyIdentity name="LibVlcWrapper" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wGgszDkjxmDdmqNc8aXd+EpqkNmuJCKK7Lk0QmF2CdI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MediaServer.exe" size="1333248">
+      <assemblyIdentity name="MediaServer" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>kDolw7MqSVUMePTkV5CVhDNdMNDsIStDFXj2spesUS4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NLog.dll" size="253952">
+      <assemblyIdentity name="NLog" version="1.0.0.505" publicKeyToken="5120E14C03D0593C" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>7O6ib5vADDw3UC83/q/1bMsmbPZR/r8UnenIyX7Fq/k=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MediaServer.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=Zhao-PC\Zhao" issuerKeyHash="eb51a9f42bd700f29c4b75ffed1dedfec97a78a3" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>eI2R8O03lo8Mn1dk/RjtiFrjVhUleRGKPv18vNvB3YY=</DigestValue></Reference></SignedInfo><SignatureValue>lEvbspWqi020SCqHgOzWcDSRowXY1l1Qq8/2qjpsgCups4PMYJi7p8U9mnrE17rshXedq15LbQVmKmRoJDTTwaFBkvItcdp+GO+ntOjdbUitgqh9JFD4XInGR2hkRhNd7IxhAfsLKQrBBEDZjT/AFxPMaJeGnUbC0OZzRMBeh2o=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>7c2sVGKfI10/qcOlGnDNUubh+dmT03d4+Fu/7xWUJemH6psHi7KfbzkX89mAwRTX3+TsupdlG5zmCMI1SZMG1t8kItW9K+1uZv+VgSwMlP0AvcXmfxklSTYCL1BKmRjzFA9M6WG50yw/zmu927PjBOQhPoJnvm30/KofTE/IPek=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="86ddc1dbbc7cfd3e8a1179251556e35a88ed18fd64579f0c8f9637edf0918d78" Description="" Url=""><as:assemblyIdentity name="MediaServer.exe" version="1.0.0.1" publicKeyToken="2a3a399ccbea25a7" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=Zhao-PC\Zhao</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>w8CUkmzm1mEpY8Am7LjsZraKcuInmpnipMnlHKW6Ors=</DigestValue></Reference></SignedInfo><SignatureValue>Af81sIti/aA/kx+r5Q1yB+7iXxHrYl4Mg6goNik4BKwAop3DiFhq2Pg2X1qKZUZL1Y34CJy9dNetei4zIqaKrUmb49ok/NUZugRAtHafPCX4o6XuhFiQKD48htcHVwHGBz4a4zDpAgoAJ5ViDgg9S91JhKWKGCMTNbcjV0p9NQY=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>7c2sVGKfI10/qcOlGnDNUubh+dmT03d4+Fu/7xWUJemH6psHi7KfbzkX89mAwRTX3+TsupdlG5zmCMI1SZMG1t8kItW9K+1uZv+VgSwMlP0AvcXmfxklSTYCL1BKmRjzFA9M6WG50yw/zmu927PjBOQhPoJnvm30/KofTE/IPek=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIByTCCATKgAwIBAgIQWEXFL9Br9K9DFVVn/8nNUTANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDHhgAWgBoAGEAbwAtAFAAQwBcAFoAaABhAG8wHhcNMTMwODE2MTEzODM5WhcNMTQwODE2MTczODM5WjAjMSEwHwYDVQQDHhgAWgBoAGEAbwAtAFAAQwBcAFoAaABhAG8wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAO3NrFRinyNdP6nDpRpwzVLm4fnZk9N3ePhbv+8VlCXph+qbB4uyn285F/PZgMEU19/k7LqXZRuc5gjCNUmTBtbfJCLVvSvtbmb/lYEsDJT9AL3F5n8ZJUk2Ai9QSpkY8xQPTOlhudMsP85rvduz4wTkIT6CZ75t9PyqH0xPyD3pAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAp2+UzSUptB5eIY035G5QTteM2MG5bKBWUPkJ1yGYv8GY6rfikDKDy66Hs3IvLaYH/X6q2125zjBAOyMFhrkmO6Cwnxo3xACrLLOUVwzLEtLaaTFRl8UylcmPxGSO2hWs1JtkwZTpChhUyTdnLYF7pF3Y7PCSsurJRr2YWMbJTmg=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
