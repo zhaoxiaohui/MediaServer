@@ -78,14 +78,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MediaServer.exe" size="1452544">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MediaServer.exe" size="1453568">
       <assemblyIdentity name="MediaServer" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hjR1LkU7Mjuz4m5IyhjgIIViZ1DD/zNZy2X0lM0zqz0=</dsig:DigestValue>
+        <dsig:DigestValue>ICsYHknhvWemXS66FXc4BSkjmrJhY5bwdTiJLDAZL0U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

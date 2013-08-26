@@ -46,7 +46,8 @@ namespace MediaServer
         #region VLC C#库
         private IMediaPlayerFactory m_factory;
         private IMediaPlayerFactory m_factory_broadcast;
-        
+        private IMediaPlayerFactory m_factory_vod;
+        private Dictionary<String, String> vods;
         #endregion
 
         #region 时间控件
@@ -98,14 +99,19 @@ namespace MediaServer
 		        "--plugin-path=./plugins",
                 "--rtsp-host=:554"
              };
-            m_factory = new MediaPlayerFactory(args);
+            m_factory = new MediaPlayerFactory();
             m_factory_broadcast = new MediaPlayerFactory();
+            m_factory_vod = new MediaPlayerFactory(args);
+            vods = new Dictionary<string, string>();
             m_factory.VideoLanManager.Events.MediaInstancePlaying += Events_MediaInstancePlaying;
             m_factory.VideoLanManager.Events.MediaInstanceError += Events_MediaInstanceError;
             m_factory.VideoLanManager.Events.MediaInstanceStopped += Events_MediaInstanceStopped;
             m_factory_broadcast.VideoLanManager.Events.MediaInstancePlaying += Events_MediaInstancePlaying;
             m_factory_broadcast.VideoLanManager.Events.MediaInstanceError += Events_MediaInstanceError;
             m_factory_broadcast.VideoLanManager.Events.MediaInstanceStopped += Events_MediaInstanceStopped;
+            m_factory_vod.VideoLanManager.Events.MediaInstancePlaying += Events_MediaInstancePlaying;
+            m_factory_vod.VideoLanManager.Events.MediaInstanceError += Events_MediaInstanceError;
+            m_factory_vod.VideoLanManager.Events.MediaInstanceStopped += Events_MediaInstanceStopped;
         }
         private void InitializeFileWatcher()
         {
@@ -312,7 +318,7 @@ namespace MediaServer
             m_isLoadVod = true;
             List<FileInfo> mp4Files = FileOperation.getFile(msSettings.Directory + "/", ".mp4");
             foreach (FileInfo file in mp4Files) {
-                m_factory.VideoLanManager.AddVod(file.Name, file.FullName, options);
+                m_factory_vod.VideoLanManager.AddVod(file.Name, file.FullName, options);
             }
         }
         /// <summary>
@@ -336,6 +342,7 @@ namespace MediaServer
             if (files.Count > 0)
             {
                 files.Sort(delegate(FileInfo file1, FileInfo file2) { return file1.CreationTime.CompareTo(file2.CreationTime); });
+                this.m_factory_vod.VideoLanManager.DeleteMedia(files[0].Name);
                 files[0].Delete();
                 
             }
@@ -440,6 +447,7 @@ namespace MediaServer
         {
             //停止文件夹监听
             fileWatcher.EnableRaisingEvents = false;
+            vodTimer.Stop();
             //停止操作监听
             osListener.Stop();
             LinkNumTimer.Stop();
@@ -463,11 +471,10 @@ namespace MediaServer
 
 
             //if (!m_isLoadVod) loadVod();
-
-
-
             fileWatcher.Path = msSettings.Directory + "/";
             fileWatcher.EnableRaisingEvents = true;
+            vodTimer.Interval = 10000;
+            vodTimer.Start();
             //开启操作监听
             osListener.MediaDir = msSettings.Directory + "/";
             osListener.Start(8556);
@@ -488,9 +495,11 @@ namespace MediaServer
         /// <param name="e"></param>
         void fileWatcherEvents(object sender, FileSystemEventArgs e)
         {
+            
             if (e.ChangeType == WatcherChangeTypes.Created)
             {
-                m_factory.VideoLanManager.AddVod(e.Name, msSettings.Directory+"\\"+e.Name, options);
+                vods.Add(e.Name, msSettings.Directory + "\\" + e.Name);
+                //m_factory_vod.VideoLanManager.AddVod(e.Name, msSettings.Directory+"\\"+e.Name, options);
             }
         }
         #endregion
@@ -671,6 +680,16 @@ namespace MediaServer
             //if (msStatus.ServerStatus == STATUS.Running) {
                 UISync.Execute(() => labLinkNum.Text = osListener.NumberOfConnections.ToString());
             //}
+        }
+
+        private void vodTimer_Tick(object sender, EventArgs e)
+        {
+            if (vods.Count > 0) { 
+                foreach(KeyValuePair<string, string> item in vods){
+                    this.m_factory_vod.VideoLanManager.AddVod(item.Key, item.Value, options);
+                    vods.Remove(item.Key);
+                }
+            }
         }
     }
 }

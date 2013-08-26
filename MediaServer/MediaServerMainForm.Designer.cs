@@ -20,6 +20,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MedisServerMainForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labLinkNum = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnHelp = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
@@ -51,9 +53,8 @@
             this.lstContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolDeleteSel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolDeleteAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.label8 = new System.Windows.Forms.Label();
-            this.labLinkNum = new System.Windows.Forms.Label();
             this.LinkNumTimer = new System.Windows.Forms.Timer(this.components);
+            this.vodTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,6 +79,22 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "操作";
+            // 
+            // labLinkNum
+            // 
+            this.labLinkNum.Location = new System.Drawing.Point(452, 36);
+            this.labLinkNum.Name = "labLinkNum";
+            this.labLinkNum.Size = new System.Drawing.Size(100, 23);
+            this.labLinkNum.TabIndex = 6;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(334, 36);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(125, 12);
+            this.label8.TabIndex = 5;
+            this.label8.Text = "当前连接服务器人数：";
             // 
             // btnHelp
             // 
@@ -476,25 +493,14 @@
             this.toolDeleteAll.Size = new System.Drawing.Size(124, 22);
             this.toolDeleteAll.Text = "删除全部";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(334, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 12);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "当前连接服务器人数：";
-            // 
-            // labLinkNum
-            // 
-            this.labLinkNum.Location = new System.Drawing.Point(452, 36);
-            this.labLinkNum.Name = "labLinkNum";
-            this.labLinkNum.Size = new System.Drawing.Size(100, 23);
-            this.labLinkNum.TabIndex = 6;
-            // 
             // LinkNumTimer
             // 
             this.LinkNumTimer.Tick += new System.EventHandler(this.LinkNumTimer_Tick);
+            // 
+            // vodTimer
+            // 
+            this.vodTimer.Interval = 1000;
+            this.vodTimer.Tick += new System.EventHandler(this.vodTimer_Tick);
             // 
             // MedisServerMainForm
             // 
@@ -561,6 +567,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labLinkNum;
         private System.Windows.Forms.Timer LinkNumTimer;
+        private System.Windows.Forms.Timer vodTimer;
     }
 }
 
