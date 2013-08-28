@@ -298,6 +298,7 @@
             this.comTimeMinute.Items.AddRange(new object[] {
             "0",
             "1",
+            "2",
             "15",
             "30",
             "45",

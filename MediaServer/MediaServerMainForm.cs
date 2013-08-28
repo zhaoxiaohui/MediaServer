@@ -687,8 +687,9 @@ namespace MediaServer
             if (vods.Count > 0) { 
                 foreach(KeyValuePair<string, string> item in vods){
                     this.m_factory_vod.VideoLanManager.AddVod(item.Key, item.Value, options);
-                    vods.Remove(item.Key);
+                    
                 }
+                vods.Clear();
             }
         }
     }

@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaServer", "MediaServer\MediaServer.csproj", "{8ADDB5B1-FBD3-46E6-986E-F8FC522C1B90}"
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "Setup1", "Setup1\Setup1.isproj", "{07478F6B-010C-4EF6-9CC4-03F8C7E0273A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{8ADDB5B1-FBD3-46E6-986E-F8FC522C1B90} = {8ADDB5B1-FBD3-46E6-986E-F8FC522C1B90}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
